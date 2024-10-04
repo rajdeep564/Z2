@@ -1,0 +1,154 @@
+/* Global reset for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  height: 100%;
+}
+
+header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+header img {
+  height: 75px;
+  margin-left: 30px;
+}
+
+/* Wrapper styling */
+.menu-wrapper {
+  position: relative;
+}
+
+/* Hamburger menu styling */
+.hamburger {
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.hamburger span {
+  background-color: #333;
+  width: 100%;
+  height: 5px;
+  transition: 0.3s ease;
+  position: relative;
+}
+
+.hamburger span:nth-child(1) {
+  transform-origin: top left;
+}
+
+.hamburger span:nth-child(3) {
+  transform-origin: bottom left;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+/* Sliding background */
+.nav-background {
+  position: absolute;
+  top: 60px; /* Adjust based on header height */
+  right: 0;
+  width: 0;
+  height: calc(100vh - 60px); /* Full height minus header */
+  background-color: white;
+  z-index: -1; /* Behind the nav links */
+  transition: width 0.4s ease;
+}
+
+#nav-links.open + .nav-background {
+  width: 300px; /* Adjust as needed */
+}
+
+/* Hidden nav links */
+#nav-links {
+  list-style: none;
+  padding: 0;
+  position: absolute;
+  top: 60px; /* Adjust based on header height */
+  right: 0;
+  opacity: 0;
+  z-index: 10; /* Above the background */
+  display: none;
+  transition: all 0.3s ease;
+}
+
+#nav-links.open {
+  display: block;
+  opacity: 1;
+}
+
+#nav-links li {
+  padding: 10px 15px;
+}
+
+#nav-links a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  font-size: xx-large;
+}
+
+#nav-links a:hover {
+  color: darkgreen;
+}
+
+/* Animation for sliding in the nav items */
+#nav-links.open li {
+  opacity: 0;
+  transform: translateX(100px);
+  animation: slideIn 0.4s ease forwards;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Styling for canvas */
+#home {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
