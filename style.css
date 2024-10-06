@@ -1,4 +1,4 @@
-/* Global reset for all elements */
+
 * {
   margin: 0;
   padding: 0;
@@ -82,14 +82,11 @@ header img {
   right: 0;
   width: 0;
   height: calc(100vh - 60px); /* Full height minus header */
-  background-color: white;
-  z-index: -1; /* Behind the nav links */
+  background-color: #fff;
+  z-index: 5; /* Ensure it's above the canvas but below the nav links */
   transition: width 0.4s ease;
 }
 
-#nav-links.open + .nav-background {
-  width: 300px; /* Adjust as needed */
-}
 
 /* Hidden nav links */
 #nav-links {
@@ -151,4 +148,28 @@ canvas {
   display: block;
   width: 100vw;
   height: 100vh;
+  z-index: 0;
 }
+
+.bg1{
+  width: 100%;
+  height: auto;
+}
+
+.sid{
+  position: relative;
+  top: -1340px;
+  left: 100px;
+  width: 50%;
+  height: auto;
+  font-size: 100px;
+  color: white;
+  text-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.background{
+  position: relative;
+  
+}
+
+
